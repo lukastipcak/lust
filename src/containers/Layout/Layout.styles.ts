@@ -19,6 +19,29 @@ const useStyles = makeStyles((theme) => ({
       height: "70%",
     },
   },
+  abstractContainer: {
+    height: "100%",
+    position: "relative",
+  },
+  topLeft: {
+    color: "white",
+    position: "absolute",
+    top: "8px",
+    left: "16px",
+  },
+  centered: {
+    color: "white",
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+    top: "50%",
+    left: "50%",
+  },
+  bottomLeft: {
+    color: "white",
+    position: "absolute",
+    bottom: "8px",
+    left: "16px",
+  },
 }));
 
 export default useStyles;

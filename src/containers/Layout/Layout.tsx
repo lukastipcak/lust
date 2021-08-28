@@ -3,6 +3,7 @@ import { Box, Grid } from "@material-ui/core";
 import useStyles from "./Layout.styles";
 import abstract from "./abstract.jpg";
 import me from "./me.jpeg";
+import { Typography } from "@material-ui/core";
 
 const Layout = (): JSX.Element => {
   const classes = useStyles();
@@ -30,7 +31,7 @@ const Layout = (): JSX.Element => {
             lg={6}
             className={classes.infoContainer}
           >
-            <Box style={{ backgroundColor: "grey", height: "100%" }}>
+            <Box className={classes.abstractContainer}>
               <img
                 alt="abstract"
                 src={abstract}
@@ -38,6 +39,15 @@ const Layout = (): JSX.Element => {
                 height="100%"
                 style={{ objectFit: "cover" }}
               />
+              <Typography variant="h5" className={classes.topLeft}>
+                Hello, I'm
+              </Typography>
+              <Typography variant="h3" className={classes.centered}>
+                Lukáš Štipčák
+              </Typography>
+              <Typography variant="h5" className={classes.bottomLeft}>
+                FrontEnd Developer
+              </Typography>
             </Box>
           </Grid>
           <Grid
@@ -48,7 +58,7 @@ const Layout = (): JSX.Element => {
             lg={6}
             className={classes.photoContainer}
           >
-            <Box style={{ backgroundColor: "lightgrey", height: "100%" }}>
+            <Box style={{ height: "100%" }}>
               <img
                 alt="me"
                 src={me}
