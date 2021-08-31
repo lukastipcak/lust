@@ -1,27 +1,49 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  infoContainer: {
+  layoutContainer: {
+    flexGrow: 1,
+    height: "100%",
+  },
+  contentContainer: {
+    height: "100%",
+  },
+  displaySizeContainer: {
     height: "100%",
     [theme.breakpoints.only("xs")]: {
-      height: "30%",
+      height: "40%",
     },
     [theme.breakpoints.only("sm")]: {
       height: "30%",
     },
   },
-  photoContainer: {
+  photoMeSizeContainer: {
     height: "100%",
     [theme.breakpoints.only("xs")]: {
-      height: "70%",
+      height: "60%",
     },
     [theme.breakpoints.only("sm")]: {
       height: "70%",
     },
   },
-  abstractContainer: {
+  abstractBackground: {
     height: "100%",
     position: "relative",
+  },
+  meBackground: {
+    height: "100%",
+  },
+  contentTextContainer: {
+    width: "350px",
+    height: "170px",
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+    top: "50%",
+    left: "50%",
+    color: "white",
+  },
+  imgFillContainer: {
+    objectFit: "cover",
   },
   topLeft: {
     color: "white",
@@ -31,16 +53,14 @@ const useStyles = makeStyles((theme) => ({
   },
   centered: {
     color: "white",
-    position: "absolute",
-    transform: "translate(-50%, -50%)",
-    top: "50%",
-    left: "50%",
   },
   bottomLeft: {
     color: "white",
-    position: "absolute",
-    bottom: "8px",
-    left: "16px",
+  },
+  centeredIcon: {
+    "& .MuiCheckbox-root": {
+      lineHeight: "normal",
+    },
   },
 }));
 

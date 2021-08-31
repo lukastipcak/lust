@@ -1,14 +1,15 @@
 import React from "react";
-import { Box, Grid } from "@material-ui/core";
+import { Box, Fab, Grid } from "@material-ui/core";
 import useStyles from "./Layout.styles";
 import abstract from "./abstract.jpg";
 import me from "./me.jpeg";
 import { Typography } from "@material-ui/core";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 const Layout = (): JSX.Element => {
   const classes = useStyles();
   return (
-    <div style={{ flexGrow: 1, height: "100%" }}>
+    <div className={classes.layoutContainer}>
       <Box
         paddingTop={6}
         paddingLeft={6}
@@ -21,7 +22,7 @@ const Layout = (): JSX.Element => {
           direction="row"
           justifyContent="flex-start"
           alignItems="flex-start"
-          style={{ height: "100%" }}
+          className={classes.contentContainer}
         >
           <Grid
             item
@@ -29,25 +30,48 @@ const Layout = (): JSX.Element => {
             sm={12}
             md={6}
             lg={6}
-            className={classes.infoContainer}
+            className={classes.displaySizeContainer}
           >
-            <Box className={classes.abstractContainer}>
+            <Box className={classes.abstractBackground}>
               <img
                 alt="abstract"
                 src={abstract}
                 width="100%"
                 height="100%"
-                style={{ objectFit: "cover" }}
+                className={classes.imgFillContainer}
               />
-              <Typography variant="h5" className={classes.topLeft}>
-                Hello, I'm
-              </Typography>
-              <Typography variant="h3" className={classes.centered}>
-                Lukáš Štipčák
-              </Typography>
-              <Typography variant="h5" className={classes.bottomLeft}>
-                FrontEnd Developer
-              </Typography>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                className={classes.contentTextContainer}
+                spacing={1}
+              >
+                <Grid item xs={12}>
+                  <Typography variant="h5">Hello, I'm</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="h3">Lukáš Štipčák</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="h5">FrontEnd Developer</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Fab
+                    size="small"
+                    variant="circular"
+                    onClick={() => {
+                      window.open(
+                        "https://www.linkedin.com/in/lukas-stipcak",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    <LinkedInIcon fontSize={"medium"} />
+                  </Fab>
+                </Grid>
+              </Grid>
             </Box>
           </Grid>
           <Grid
@@ -56,15 +80,15 @@ const Layout = (): JSX.Element => {
             sm={12}
             md={6}
             lg={6}
-            className={classes.photoContainer}
+            className={classes.photoMeSizeContainer}
           >
-            <Box style={{ height: "100%" }}>
+            <Box className={classes.meBackground}>
               <img
                 alt="me"
                 src={me}
                 width="100%"
                 height="100%"
-                style={{ objectFit: "cover" }}
+                className={classes.imgFillContainer}
               />
             </Box>
           </Grid>
