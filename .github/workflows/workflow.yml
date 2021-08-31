@@ -21,7 +21,7 @@ jobs:
         run: yarn install && yarn run build
 
       - name: Deploy
-        uses: lukastipcak/lust@0.1.0
+        uses: lukastipcak/lust
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
