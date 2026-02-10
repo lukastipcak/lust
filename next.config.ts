@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/lukastipcak/lust',   // DŮLEŽITÉ
+  basePath: '/lukastipcak/lust',
   assetPrefix: '/lukastipcak/lust/',
 };
 
