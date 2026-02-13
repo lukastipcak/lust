@@ -11,37 +11,59 @@ export default function Home() {
     <>
       {/* Hero / Intro */}
       <AnimatedSection delay={0}>
-        <section className="flex flex-col sm:flex-row gap-8 items-start mb-16">
-          {/* Photo placeholder with hover effect */}
-          <motion.div 
-            className="w-28 h-28 sm:w-36 sm:h-36 bg-muted flex items-center justify-center text-muted-foreground text-xs shrink-0 rounded-lg overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            Vaše fotka
-          </motion.div>
-          
-          <div>
-            <h1 className="mb-4">
-              Ahoj, jsem <span className="text-accent-color">Lukáš</span>.
-            </h1>
-            <p className="text-lg mb-4">
-              Jsem software developer. Tvořím{" "}
-              <Link href="/projekty">open source projekty</Link> a píšu o{" "}
-              <Link href="/blog">webovém vývoji</Link>.
-            </p>
-            <p className="text-muted-foreground">
-              Aktuálně se věnuji React ekosystému, výkonu aplikací a DX.
-            </p>
-          </div>
-        </section>
+          <section className="flex flex-col sm:flex-row gap-10 items-start mb-20">
+            <motion.div 
+              className="w-28 h-28 sm:w-36 sm:h-36 bg-muted border border-border flex items-center justify-center text-muted-foreground text-xs shrink-0 rounded-2xl overflow-hidden shadow-sm"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Vaše fotka
+            </motion.div>
+            
+            <div className="flex-1">
+              <h1 className="mb-6 text-4xl sm:text-5xl font-bold tracking-tight text-balance">
+                Software developer se zaměřením na <span className="text-accent-color italic">Frontend</span>.
+              </h1>
+              
+              <div className="space-y-6 text-lg leading-relaxed text-balance">
+                <p>
+                  Ahoj, jsem <span className="text-accent-color font-semibold underline underline-offset-4 decoration-accent-color/30">Lukáš</span>. 
+                  IT dělám hlavně proto, že mě baví tvořit věci, které jsou hned vidět a lidé je mohou okamžitě používat.
+                </p>
+                
+                {/* Zvýrazněný blok o "neviditelné" práci */}
+                <div className="relative pl-6 border-l-2 border-accent-color/30 py-1">
+                  <p className="text-muted-foreground italic">
+                    Frontend pro mě není jen o estetice. Je to hlavně o té <span className="text-foreground font-medium">„neviditelné“ práci pod kapotou</span> – o hledání způsobů, jak aplikaci zrychlit, optimalizovat vykreslování a postavit logiku, která zvládne i ty nejsložitější úkoly s lehkostí.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Hlavní CTA - "Více o mně" */}
+              <div className="mt-8">
+                <Link 
+                  href="/o-mne" 
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 bg-foreground text-background rounded-lg text-sm font-semibold transition-all hover:bg-foreground/90 active:scale-95 shadow-md"
+                >
+                  <span>Více o mně</span>
+                  <motion.span 
+                    className="text-accent-color"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 3 }}
+                  >
+                    →
+                  </motion.span>
+                </Link>
+              </div>
+            </div>
+          </section>
       </AnimatedSection>
 
       {/* Latest Posts */}
       <AnimatedSection delay={0.15}>
         <section>
           <StickyHeader level="h2">
-            <span className="text-accent-color">#</span> Poslední články
+            <span className="text-accent-color">#</span> Co mě zrovna zajímá
           </StickyHeader>
           <ul className="list-none p-0 mt-4">
             {[
@@ -82,8 +104,8 @@ export default function Home() {
           </StickyHeader>
           <ul className="list-none p-0 mt-4">
             {[
-              { name: "react-form-validator", desc: "Lehká validační knihovna pro React formuláře" },
-              { name: "portfolio-template", desc: "Minimalistická šablona pro vývojářské portfolio" },
+              { name: "Optimalizace výkonu", desc: "Řešení plynulého scrollování pro velké datové sady" },
+              { name: "Komponentová knihovna", desc: "Znovupoužitelné UI prvky postavené na Storybooku" },
             ].map((project, i) => (
               <motion.li 
                 key={project.name}

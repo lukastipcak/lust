@@ -19,28 +19,42 @@ export default function About() {
 
       {/* Personal Intro */}
       <section className="mb-12 mt-6">
-        <div className="space-y-6 text-lg leading-relaxed text-balance">
-          <p>
-            Ahoj, jsem <span className="text-accent-color font-semibold">Lukáš</span>! 
-            Vítej na mém webu. V digitálním světě se pohybuji už přes 5 let a mým cílem 
-            vždy bylo stavět věci, které dávají smysl a lidem se dobře používají. 
-            Aktuálně mě nejvíc baví práce s <span className="text-accent-color">Reactem</span> a 
-            celým ekosystémem kolem moderního webového vývoje.
+        <div className="space-y-8 text-lg leading-relaxed">
+          {/* Úvodní odstavec s větším důrazem */}
+          <p className="text-balance">
+            Ahoj, jsem <span className="text-accent-color font-semibold">Lukáš</span>. 
+            V digitálním světě se pohybuji už přes 5 let a mým cílem bylo vždy stavět věci, 
+            které dávají smysl a lidem se dobře používají. Aktuálně mě nejvíc baví práce s {" "}
+            <span className="text-foreground font-medium underline underline-offset-4 decoration-accent-color/30">
+              Reactem
+            </span> {" "}
+            a celým ekosystémem kolem moderního webu.
           </p>
           
-          <p>
+          <p className="text-muted-foreground">
             K programování mě přivedla zvědavost, jak věci fungují pod kapotou. 
-            Dnes mě na tom nejvíc baví ten moment, kdy se hromada řádků kódu promění 
+            Dnes mě na tom nejvíc baví moment, kdy se hromada řádků kódu promění 
             v užitečný nástroj. Zakládám si na tom, aby kód, který po mně zůstane, 
-            byl čitelný a udržitelný i pro ostatní.
+            byl <span className="text-foreground font-medium">čitelný a udržitelný</span> i pro ostatní.
           </p>
 
-          <p>
-            Život ale není jenom o kódu. Jsem hrdý **táta dvou malých dětí**, které mě každý den 
-            učí trpělivosti a nadhledu. Když potřebuji úplně vypnout od technologií, 
-            nejraději mizím do přírody na **pořádnou túru** nebo se jdu vybít na **florbalové hřiště**. 
-            Rovnováha mezi prací hlavou a pohybem je pro mě naprosto zásadní.
-          </p>
+          {/* Osobní část s jemným vizuálním oddělením */}
+          <div className="relative py-2">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-color/10 rounded-full hidden sm:block" />
+            <div className="sm:pl-8 space-y-4">
+              <p>
+                Život pro mě ale není jen o kódu. Jsem hrdý {" "}
+                <span className="text-foreground font-medium">táta dvou malých dětí</span>, 
+                které mě každý den učí trpělivosti a nadhledu. 
+              </p>
+              <p>
+                Když potřebuji úplně vypnout od technologií, nejraději mizím do přírody na {" "}
+                <span className="text-foreground font-medium">pořádnou túru</span> nebo 
+                se jdu vybít na <span className="text-foreground font-medium">florbalové hřiště</span>. 
+                Rovnováha mezi prací hlavou a pohybem je pro mě naprosto zásadní.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
