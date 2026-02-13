@@ -18,7 +18,10 @@ import {
   SiFramer,
   SiGraphql,
   SiLinux,
-  SiTrpc
+  SiTrpc,
+  SiMui,
+  SiSupabase,
+  SiStrapi,
 } from "react-icons/si";
 import { TestTube } from "lucide-react";
 
@@ -46,6 +49,9 @@ const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "tRPC": SiTrpc,
   "MDX": SiReact,
   "SQL": SiPostgresql,
+  "Material-UI": SiMui,
+  "Supabase": SiSupabase,
+  "Strapi": SiStrapi
 };
 
 interface TechChipProps {

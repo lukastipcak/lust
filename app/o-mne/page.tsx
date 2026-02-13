@@ -3,11 +3,11 @@ import { TechChip } from "@/components/TechChip";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const technologies = {
-  "Jazyky": ["TypeScript", "JavaScript", "Python", "SQL"],
-  "Frontend": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-  "Backend": ["Node.js", "Express", "Prisma", "tRPC"],
-  "Databáze": ["PostgreSQL", "Redis", "MongoDB"],
-  "Nástroje": ["Git", "Docker", "Vite", "Vitest", "Playwright"],
+  "Frontend": ["React", "Next.js", "TypeScript", "Material-UI", "Tailwind CSS", "GraphQL"],
+  "Backend": ["Node.js", "Express", "Prisma", "MongoDB"],
+  "Databáze": ["PostgreSQL", "MongoDB", "Supabase"],
+  "Testování & Nástroje": ["Cypress", "Jest", "Vitest", "Storybook", "Git", "Docker"],
+  "CMS": ["Strapi"]
 };
 
 export default function About() {
@@ -19,18 +19,29 @@ export default function About() {
 
       {/* Personal Intro */}
       <section className="mb-12 mt-6">
-        <p className="text-lg leading-relaxed">
-          Ahoj, jsem <span className="text-accent-color font-semibold">Lukáš</span>! 
-          Vítej na mém kousku webu, kde sdílím své projekty, články o vývoji a 
-          cokoliv dalšího, co mě baví. Aktuálně pracuji jako software developer 
-          se zaměřením na <span className="text-accent-color">React</span>, {" "}
-          <span className="text-accent-color">TypeScript</span> a {" "}
-          <span className="text-accent-color">Node.js</span>.
-        </p>
-        <p className="text-lg leading-relaxed">
-          Jsem taky hrdý táta dvou malých skvělých dětí. Když zrovna neprogramuju nebo si nehraju s dětmi, 
-          najdete mě na túře někde v přírodě nebo na florbalovém hřišti.
-        </p>
+        <div className="space-y-6 text-lg leading-relaxed text-balance">
+          <p>
+            Ahoj, jsem <span className="text-accent-color font-semibold">Lukáš</span>! 
+            Vítej na mém webu. V digitálním světě se pohybuji už přes 5 let a mým cílem 
+            vždy bylo stavět věci, které dávají smysl a lidem se dobře používají. 
+            Aktuálně mě nejvíc baví práce s <span className="text-accent-color">Reactem</span> a 
+            celým ekosystémem kolem moderního webového vývoje.
+          </p>
+          
+          <p>
+            K programování mě přivedla zvědavost, jak věci fungují pod kapotou. 
+            Dnes mě na tom nejvíc baví ten moment, kdy se hromada řádků kódu promění 
+            v užitečný nástroj. Zakládám si na tom, aby kód, který po mně zůstane, 
+            byl čitelný a udržitelný i pro ostatní.
+          </p>
+
+          <p>
+            Život ale není jenom o kódu. Jsem hrdý **táta dvou malých dětí**, které mě každý den 
+            učí trpělivosti a nadhledu. Když potřebuji úplně vypnout od technologií, 
+            nejraději mizím do přírody na **pořádnou túru** nebo se jdu vybít na **florbalové hřiště**. 
+            Rovnováha mezi prací hlavou a pohybem je pro mě naprosto zásadní.
+          </p>
+        </div>
       </section>
 
       {/* Contact Section */}
@@ -45,7 +56,7 @@ export default function About() {
           <div className="space-y-3">
             <a
               href="mailto:stipcakl@seznam.cz"
-              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors"
+              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors w-fit"
             >
               <Mail className="w-5 h-5" />
               <span>stipcakl@seznam.cz</span>
@@ -54,19 +65,19 @@ export default function About() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors"
+              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors w-fit"
             >
               <Linkedin className="w-5 h-5" />
-              <span>LinkedIn (profesní zkušenosti)</span>
+              <span>LinkedIn (profesní profil)</span>
             </a>
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors"
+              className="flex items-center gap-3 text-foreground hover:text-accent-color transition-colors w-fit"
             >
               <Github className="w-5 h-5" />
-              <span>GitHub</span>
+              <span>GitHub (moje projekty)</span>
             </a>
           </div>
         </div>
@@ -78,29 +89,29 @@ export default function About() {
           Co teď dělám
         </StickyHeader>
         <div className="py-6">
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm text-muted-foreground mb-4 italic">
             Aktualizováno {new Date().toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric' })}
           </p>
-          <ul className="space-y-2 list-none p-0">
-            <li className="flex items-start gap-2 m-0">
-              <span className="text-accent-color mt-0.5">→</span>
-              <span>Pracuji na full-time jako software developer</span>
+          <ul className="space-y-3 list-none p-0">
+            <li className="flex items-start gap-3 m-0">
+              <span className="text-accent-color font-bold">→</span>
+              <span>Pracuji na plný úvazek jako Software developer v oblasti webových aplikací</span>
             </li>
-            <li className="flex items-start gap-2 m-0">
-              <span className="text-accent-color mt-0.5">→</span>
-              <span>Jsem táta dvou malých skvělých dětí.</span>
+            <li className="flex items-start gap-3 m-0">
+              <span className="text-accent-color font-bold">→</span>
+              <span>Trávím čas s dětmi a učím je objevovat svět</span>
             </li>
-            <li className="flex items-start gap-2 m-0">
-              <span className="text-accent-color mt-0.5">→</span>
-              <span>Rád se věnuji turistice a florbalu</span>
+            <li className="flex items-start gap-3 m-0">
+              <span className="text-accent-color font-bold">→</span>
+              <span>Snažím se být co nejvíc venku, v lese nebo na horách</span>
             </li>
-            <li className="flex items-start gap-2 m-0">
-              <span className="text-accent-color mt-0.5">→</span>
-              <span>Když je příležitost, rád se zúčastním charitativního běhu pro dobrou věc</span>
+            <li className="flex items-start gap-3 m-0">
+              <span className="text-accent-color font-bold">→</span>
+              <span>Rekreačně hraju florbal a udržuju se v kondici</span>
             </li>
-            <li className="flex items-start gap-2 m-0">
-              <span className="text-accent-color mt-0.5">→</span>
-              <span>Vylepšuji tento web</span>
+            <li className="flex items-start gap-3 m-0">
+              <span className="text-accent-color font-bold">→</span>
+              <span>Postupně vylepšuji tento web</span>
             </li>
           </ul>
         </div>
@@ -113,16 +124,12 @@ export default function About() {
         </StickyHeader>
         <div className="py-6">
           <p className="text-muted-foreground mb-6">
-            Technologie a nástroje, se kterými pracuji nebo mám zkušenosti. 
-            Pro detailní profesní zkušenosti se podívej na můj{" "}
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              LinkedIn profil
-            </a>.
+            Nástroje a stack, se kterými mám nejvíc zkušeností a které rád používám.
           </p>
           <div className="space-y-6">
             {Object.entries(technologies).map(([category, techs]) => (
               <div key={category}>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3 mt-0">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70 mb-3 mt-0">
                   {category}
                 </h4>
                 <div className="flex flex-wrap gap-2">

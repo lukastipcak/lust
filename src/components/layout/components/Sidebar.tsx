@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, FileText, FolderOpen, User, Github, Linkedin, Mail } from "lucide-react";
-import { ColorPaletteSelector } from "./ColorPaletteSelector";
-import { ThemeToggle } from "./ThemeToggle";
+import { ColorPaletteSelector } from "../../ColorPaletteSelector";
+import { ThemeToggle } from "../../ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Domů", icon: Home },

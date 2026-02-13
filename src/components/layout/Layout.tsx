@@ -1,7 +1,7 @@
 "use client";
 
-import { Sidebar } from "./Sidebar";
-import { MobileHeader } from "./MobileHeader";
+import { Sidebar } from "./components/Sidebar";
+import { MobileHeader } from "./components/MobileHeader";
 
 interface LayoutProps {
   children: React.ReactNode;
