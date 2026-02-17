@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "@/hooks/useTheme";
 import { useEffect, useState } from "react";
 
 const palettes = [
@@ -12,30 +13,18 @@ const palettes = [
 ];
 
 export const ColorPaletteSelector = () => {
-  const [activePalette, setActivePalette] = useState("green");
+  const { textColor, changeTextColor, isLoaded } = useTheme();
 
-  useEffect(() => {
-    const stored = localStorage.getItem("color-palette");
-    if (stored) {
-      setActivePalette(stored);
-      document.documentElement.setAttribute("data-palette", stored);
-    }
-  }, []);
-
-  const selectPalette = (palette: string) => {
-    setActivePalette(palette);
-    document.documentElement.setAttribute("data-palette", palette);
-    localStorage.setItem("color-palette", palette);
-  };
+  if (!isLoaded) return null;
 
   return (
     <div className="flex items-center gap-2 flex-wrap">
       {palettes.map((palette) => (
         <button
           key={palette.name}
-          onClick={() => selectPalette(palette.name)}
+          onClick={() => changeTextColor(palette.name)}
           className={`w-5 h-5 rounded-full transition-transform hover:scale-110 ${
-            activePalette === palette.name ? "ring-2 ring-offset-2 ring-offset-background ring-foreground" : ""
+            textColor === palette.name ? "ring-2 ring-offset-2 ring-offset-background ring-foreground" : ""
           }`}
           style={{ backgroundColor: palette.color }}
           aria-label={palette.label}

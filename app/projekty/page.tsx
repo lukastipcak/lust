@@ -19,41 +19,49 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    name: "Fakturační systém",
-    description:
-      "Full-stack aplikace pro správu faktur a napojení na bankovní API. Automatická kategorizace transakcí.",
-    tech: ["React", "Node.js", "PostgreSQL", "Prisma"],
-  },
-  {
-    name: "CRM systém",
-    description:
-      "Komplexní systém pro správu kontraktů, automatizaci workflow a generování reportů pro daňovou kancelář.",
-    tech: ["Next.js", "tRPC", "PostgreSQL"],
-  },
 ];
 
 const practice: Project[] = [
   {
-    name: "react-form-validator",
+    name: "AdminCore HUB",
     description:
-      "Lehká knihovna pro validaci formulářů v Reactu. Zero dependencies, TypeScript first, plná podpora pro async validace.",
-    tech: ["TypeScript", "React"],
-    github: "https://github.com",
+      "Modulární full-stack admin platforma postavená na MERN stacku. Navržena jako škálovatelný základ pro firemní nástroje (správa úkolů, správa uživatelů, rezervační systémy, CRM moduly). Obsahuje JWT autentizaci, chráněné routy, centralizovanou správu stavu aplikace a architekturu postavenou na REST API.",
+    tech: [
+      // Frontend
+      "React",
+      "TypeScript",
+      "Redux",
+      "React Router",
+      "React Hook Form",
+      "Yup",
+      "React Query",
+      "Axios",
+      "Material-UI",
+
+      // Backend
+      "Node.js",
+      "Express",
+      "Mongoose",
+      "JWT",
+      "bcryptjs",
+
+      // Database
+      "MongoDB"
+    ],
+    github: "https://github.com/tolukahub/adminApp",
   },
   {
-    name: "portfolio-template",
+    name: "Webová stránka - zemní a výkopové práce",
     description:
-      "Minimalistická šablona portfolia pro vývojáře. Inspirovaná taniarascia.com, zaměřená na obsah a čitelnost.",
-    tech: ["Next.js", "MDX", "Tailwind CSS"],
-    github: "https://github.com",
-  },
-  {
-    name: "use-virtualized-list",
-    description:
-      "React hook pro efektivní renderování velkých seznamů. Inspirováno react-window, ale s modernějším API.",
-    tech: ["TypeScript", "React"],
-    github: "https://github.com",
+     "Webová stránka pro firmu zabývající se zemními a výkopovými pracemi. Postaveno na Next.js a Tailwind CSS s důrazem na SEO optimalizaci. Napojeno na Strapi, aby mohl klient sám nahrávat fotografie a aktualizovat obsah. Obsahuje poptávkový formulář propojený s Resend pro odesílání e-mailů.",
+    tech: [
+    "Next.js",
+    "Tailwind CSS",
+    "Strapi",
+    "Resend",
+    "React",
+  ],
+    github: "https://github.com/lukastipcak/zemni-prace-web",
   },
 ];
 
@@ -133,7 +141,9 @@ const Projects = () => {
         </p>
       </AnimatedSection>
 
-      {projects.map((project, index) => (
+      {projects.length === 0 ? <div className="border rounded-lg p-6 text-sm text-muted-foreground bg-muted/40">
+    Připravuji detailní prezentaci komerčních projektů. Sekce bude brzy aktualizována.
+</div>:projects.map((project, index) => (
         <AnimatedSection key={project.name} delay={0.15 + index * 0.08}>
           <section className="mb-2">
             <StickyHeader level="h3">

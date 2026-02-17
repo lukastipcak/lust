@@ -22,6 +22,14 @@ import {
   SiMui,
   SiSupabase,
   SiStrapi,
+  SiResend,
+  SiRedux,
+  SiReactrouter,
+  SiReactquery,
+  SiReacthookform,
+  SiAxios,
+  SiMongoose,
+  SiJsonwebtokens
 } from "react-icons/si";
 import { TestTube } from "lucide-react";
 
@@ -51,7 +59,15 @@ const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "SQL": SiPostgresql,
   "Material-UI": SiMui,
   "Supabase": SiSupabase,
-  "Strapi": SiStrapi
+  "Strapi": SiStrapi,
+  "Resend": SiResend,
+  "Redux": SiRedux,
+  "React Router": SiReactrouter,
+  "React Query": SiReactquery,
+  "React Hook Form": SiReacthookform,
+  "Axios": SiAxios,
+  "Mongoose": SiMongoose,
+  "JWT": SiJsonwebtokens,
 };
 
 interface TechChipProps {

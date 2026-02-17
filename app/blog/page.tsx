@@ -11,17 +11,10 @@ export const dynamic = "force-dynamic";
 const blogPosts = [
   {
     slug: "virtualizace-dom",
-    title: "Virtualizace DOM s React Window",
-    date: "15. ledna 2024",
+    title: "Virtualizace DOM",
+    date: "17. února 2026",
     excerpt:
       "Jak efektivně renderovat tisíce řádků v Reactu pomocí virtualizace a knihovny react-window.",
-  },
-  {
-    slug: "defer-render",
-    title: "Defer Render Component Pattern",
-    date: "5. ledna 2024",
-    excerpt:
-      "Technika pro odložení renderování těžkých komponent a zlepšení perceived performance.",
   },
 ];
 
@@ -35,7 +28,7 @@ export default function Blog() {
       
       <AnimatedSection delay={0.1}>
         <p className="text-lg my-6">
-          Píšu o webovém vývoji, výkonu aplikací a React ekosystému.
+          Sdílím poznatky z vývoje moderních webových aplikací – React, Next.js, architektura a nástroje, které dávají smysl.
         </p>
       </AnimatedSection>
 
