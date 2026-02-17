@@ -9,30 +9,30 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="flex flex-col lg:h-screen lg:overflow-hidden">
             {/* Mobile Header */}
             <MobileHeader />
 
-            {/* Desktop Grid Layout - centered with max-width */}
-            <div className="hidden lg:grid lg:grid-cols-[16rem_1fr] lg:max-w-5xl lg:mx-auto lg:w-full">
-                {/* Sidebar - sticky within grid */}
+            {/* Desktop */}
+            <div className="hidden lg:flex lg:flex-1 lg:min-h-0 lg:max-w-5xl lg:mx-auto lg:w-full">
+                {/* Sidebar — sticky */}
                 <Sidebar />
 
-                {/* Main Content */}
-                <main className="min-h-screen border-l border-border">
-                    <div className="px-8 py-16">{children}</div>
+                {/* Content column */}
+                <div className="flex flex-col flex-1 min-h-0 border-l border-border">
+                    <main className="flex-1 overflow-y-auto">
+                        <div className="px-8 py-16">{children}</div>
+                    </main>
 
-                    {/* Footer inside content area */}
-                    <footer className="border-t border-border px-8 py-4">
+                    <footer className="shrink-0 border-t border-border px-8 py-4">
                         <p className="text-sm text-muted-foreground m-0">© {new Date().getFullYear()} Lukáš Štipčák</p>
                     </footer>
-                </main>
+                </div>
             </div>
 
-            {/* Mobile Content */}
+            {/* Mobile - body scroll, footer not fixed */}
             <main className="flex-1 lg:hidden px-6 py-12">{children}</main>
 
-            {/* Mobile Footer */}
             <footer className="lg:hidden border-t border-border px-6 py-4">
                 <p className="text-sm text-muted-foreground m-0">© {new Date().getFullYear()} Lukáš Štipčák</p>
             </footer>

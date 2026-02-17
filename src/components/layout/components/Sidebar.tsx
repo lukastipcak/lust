@@ -22,7 +22,7 @@ export const Sidebar = () => {
     }
 
     return (
-        <aside className="sticky top-0 h-screen flex flex-col bg-background overflow-y-auto scrollbar-thin">
+        <aside className="w-64 shrink-0 sticky top-0 h-screen flex flex-col bg-background overflow-y-auto scrollbar-thin">
             {/* Logo / Name */}
             <div className="p-6 border-b border-border">
                 <Link href="/" className="nav-link text-xl font-bold block">

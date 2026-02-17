@@ -10,12 +10,12 @@ export const StickyHeader = forwardRef<HTMLHeadingElement, StickyHeaderProps>(({
     // h2 sticks at top, h3 sticks below h2 (after scrolling past it)
     const config = {
         h2: {
-            top: 'top-0',
+            top: 'top-[52px] lg:top-0',
             zIndex: 'z-20',
             Tag: 'h2' as const,
         },
         h3: {
-            top: 'top-[56px]', // Height of h2 sticky header
+            top: 'top-[108px] lg:top-[56px]',
             zIndex: 'z-10',
             Tag: 'h3' as const,
         },
