@@ -5,6 +5,7 @@ import { StickyHeader } from '@/components/StickyHeader'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { InteractiveCard } from '@/components/InteractiveCard'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Home() {
     return (
@@ -13,11 +14,18 @@ export default function Home() {
             <AnimatedSection delay={0}>
                 <section className="flex flex-col sm:flex-row gap-10 items-start mb-20">
                     <motion.div
-                        className="w-28 h-28 sm:w-36 sm:h-36 bg-muted border border-border flex items-center justify-center text-muted-foreground text-xs shrink-0 rounded-2xl overflow-hidden shadow-sm"
+                        className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden shadow-sm border border-border"
                         whileHover={{ y: -2 }}
                         transition={{ duration: 0.2 }}
                     >
-                        Vaše fotka
+                        <Image
+                            src="/profile.webp"
+                            alt="Profilová fotografie"
+                            fill
+                            priority
+                            sizes="(max-width: 640px) 112px, 144px"
+                            className="object-cover transform transition-transform duration-500 hover:scale-110"
+                        />
                     </motion.div>
 
                     <div className="flex-1">
