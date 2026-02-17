@@ -1,36 +1,23 @@
 // hooks/useTheme.ts
-import { useState, useEffect, useLayoutEffect } from 'react'
+'use client'
+
+import { useTheme as useNextTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 export const useTheme = () => {
-    const [isDarkMode, setIsDarkMode] = useState(true)
+    const { resolvedTheme, setTheme } = useNextTheme()
     const [textColor, setTextColor] = useState('green')
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [mounted, setMounted] = useState(false)
 
-    // Načti uložené nastavení při mountu
-    useLayoutEffect(() => {
-        const storedTheme = localStorage.getItem('theme')
-        const storedTextColor = localStorage.getItem('textColor')
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-        // Nastav dark mode
-        const shouldBeDark = storedTheme === 'dark' || (!storedTheme && prefersDark)
-        setIsDarkMode(shouldBeDark)
-        document.documentElement.classList.toggle('dark', shouldBeDark)
-
-        // Nastav barvu
-        if (storedTextColor) {
-            setTextColor(storedTextColor)
-            document.documentElement.setAttribute('data-palette', storedTextColor)
-        }
-
-        setIsLoaded(true)
+    useEffect(() => {
+        setMounted(true)
+        const stored = localStorage.getItem('textColor') ?? 'green'
+        setTextColor(stored)
+        document.documentElement.setAttribute('data-palette', stored)
     }, [])
 
-    // Ulož změny do localStorage
     const toggleDarkMode = (mode: boolean) => {
-        setIsDarkMode(mode)
-        document.documentElement.classList.toggle('dark', mode)
-        localStorage.setItem('theme', mode ? 'dark' : 'light')
+        setTheme(mode ? 'dark' : 'light')
     }
 
     const changeTextColor = (color: string) => {
@@ -40,10 +27,10 @@ export const useTheme = () => {
     }
 
     return {
-        isDarkMode,
+        isDarkMode: resolvedTheme === 'dark',
         textColor,
         toggleDarkMode,
         changeTextColor,
-        isLoaded,
+        isLoaded: mounted,
     }
 }

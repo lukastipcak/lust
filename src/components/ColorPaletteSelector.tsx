@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/hooks/useTheme'
 import { useEffect, useState } from 'react'
+import { Skeleton } from './ui/skeleton'
 
 const palettes = [
     { name: 'blue', color: 'hsl(210, 100%, 50%)', label: 'Modrá' },
@@ -15,7 +16,14 @@ const palettes = [
 export const ColorPaletteSelector = () => {
     const { textColor, changeTextColor, isLoaded } = useTheme()
 
-    if (!isLoaded) return null
+    if (!isLoaded)
+        return (
+            <div className="flex items-center gap-2">
+                {Array.from({ length: 6 }).map((_, i) => (
+                    <Skeleton key={i} className="w-5 h-5 rounded-full" />
+                ))}
+            </div>
+        )
 
     return (
         <div className="flex items-center gap-2 flex-wrap">

@@ -2,11 +2,12 @@
 
 import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/hooks/useTheme'
+import { Skeleton } from './ui/skeleton'
 
 export const ThemeToggle = () => {
     const { isDarkMode, toggleDarkMode, isLoaded } = useTheme()
 
-    if (!isLoaded) return null
+    if (!isLoaded) return <Skeleton className="w-7 h-7 rounded-full" />
 
     return (
         <button
