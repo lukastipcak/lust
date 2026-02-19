@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic'
 
 const blogContent: Record<string, { title: string; date: string; content: React.ReactNode }> = {
     'virtualizace-dom': {
-        title: 'Virtualizace DOM a React Window',
+        title: 'Virtualizace DOM v Reactu',
         date: '17. února 2026',
         content: (
             <>

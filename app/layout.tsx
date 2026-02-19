@@ -4,8 +4,9 @@ import { Providers } from './providers'
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'Dev Portfolio',
-    description: 'Software developer portfolio',
+    title: 'Lukáš Štipčák - Software Developer',
+    description:
+        'Software developer specializující se na frontend a webové technologie. Zde najdete můj blog, projekty a další informace o mně.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
