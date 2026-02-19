@@ -1,8 +1,8 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { StickyHeader } from '@/components/StickyHeader'
-import { TechChip } from '@/components/TechChip'
+import { StickyHeader } from '@/shared/ui/components/StickyHeader'
+import { TechChip } from '@/shared/ui/components/TechChip'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { InteractiveCard } from '@/components/InteractiveCard'
 import { Github, ExternalLink } from 'lucide-react'

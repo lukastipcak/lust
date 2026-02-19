@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { StickyHeader } from '@/components/StickyHeader'
+import { StickyHeader } from '@/shared/ui/components/StickyHeader'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { InteractiveCard } from '@/components/InteractiveCard'
 import { motion } from 'framer-motion'
