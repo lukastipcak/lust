@@ -1,25 +1,22 @@
-import type { Metadata } from "next";
-import { Layout } from "@/components/Layout";
-import { Providers } from "./providers";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Layout } from '@/components/layout/Layout'
+import { Providers } from './providers'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Dev Portfolio",
-  description: "Software developer portfolio",
-};
+    title: 'Lukáš Štipčák - Software Developer',
+    description:
+        'Software developer specializující se na frontend a webové technologie. Zde najdete můj blog, projekty a další informace o mně.',
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="cs" suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        <Providers>
-          <Layout>{children}</Layout>
-        </Providers>
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="cs" suppressHydrationWarning>
+            <body suppressHydrationWarning>
+                <Providers>
+                    <Layout>{children}</Layout>
+                </Providers>
+            </body>
+        </html>
+    )
 }
