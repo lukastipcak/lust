@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 
-interface AnimatedSectionProps {
+type AnimatedSectionProps = {
     children: ReactNode
     delay?: number
     className?: string

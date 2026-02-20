@@ -1,7 +1,7 @@
 import { useToast } from '@/hooks/use-toast'
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from '@/shared/elements/toast'
 
-export function Toaster() {
+export const Toaster = () => {
     const { toasts } = useToast()
 
     return (

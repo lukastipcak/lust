@@ -72,7 +72,7 @@ const List = ({ items }) => (
     },
 }
 
-interface PageProps {
+type PageProps = {
     params: Promise<{ slug: string }>
 }
 

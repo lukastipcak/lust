@@ -1,5 +1,6 @@
 {
     "homepage": "http://lukastipcak.github.io/lust",
+    "type": "module",
     "name": "lust-portfolio",
     "private": true,
     "version": "1.0.0",

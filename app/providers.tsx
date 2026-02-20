@@ -9,11 +9,11 @@ import { ThemeProvider } from 'next-themes'
 
 const queryClient = new QueryClient()
 
-interface ProvidersProps {
+type ProvidersProps = {
     children: ReactNode
 }
 
-export function Providers({ children }: ProvidersProps) {
+export const Providers = ({ children }: ProvidersProps) => {
     return (
         <QueryClientProvider client={queryClient}>
             <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>

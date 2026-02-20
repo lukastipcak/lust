@@ -9,9 +9,9 @@ import { TechChip } from '@/shared/components/TechChip'
 import { AnimatedSection } from '@/shared/components/AnimatedSection'
 import { InteractiveCard } from '@/shared/components/InteractiveCard'
 import { StickyHeader } from '@/shared/components/StickyHeader'
-import { Project } from '../constants/constant'
+import { Project } from '../types'
 
-export function ProjectList({ projects, badgeText }: { projects: Project[]; badgeText: string }) {
+export const ProjectList = ({ projects, badgeText }: { projects: Project[]; badgeText: string }) => {
     if (projects.length === 0) {
         return (
             <div className="border rounded-lg p-6 text-sm text-muted-foreground bg-muted/40">

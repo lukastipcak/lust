@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
-interface NavLinkProps {
+type NavLinkProps = {
     href: string
     className?: string
     children: React.ReactNode

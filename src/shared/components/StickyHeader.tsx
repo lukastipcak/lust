@@ -1,6 +1,6 @@
 import { ReactNode, forwardRef } from 'react'
 
-interface StickyHeaderProps {
+type StickyHeaderProps = {
     children: ReactNode
     level: 'h2' | 'h3'
     className?: string
@@ -33,4 +33,3 @@ export const StickyHeader = forwardRef<HTMLHeadingElement, StickyHeaderProps>(({
 })
 
 StickyHeader.displayName = 'StickyHeader'
-

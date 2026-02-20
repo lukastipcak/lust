@@ -70,7 +70,7 @@ const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     JWT: SiJsonwebtokens,
 }
 
-interface TechChipProps {
+type TechChipProps = {
     name: string
     variant?: 'default' | 'outline'
 }

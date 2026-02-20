@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 
-interface InteractiveCardProps {
+type InteractiveCardProps = {
     children: ReactNode
     className?: string
 }
