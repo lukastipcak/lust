@@ -1,3 +1,7 @@
+# [lukasstipcak](https://lust-self.vercel.app/)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Vercel](https://img.shields.io/github/deployments/lukastipcak/lust/production?label=vercel&logo=vercel&logoColor=white)
+
 Lukas's personal website built with Next.js and React.
 
 This is the place where I share who I am, what I've worked on, and the skills I've picked up along the way.
