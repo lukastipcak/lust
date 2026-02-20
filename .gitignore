@@ -13,6 +13,12 @@ coverage
 # production
 /build
 
+# Cursor / AI caches
+.agents
+.cursor
+.cursor/cache
+.cursor/logs
+
 # misc
 .DS_Store
 *.pem

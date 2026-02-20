@@ -1,7 +1,11 @@
 'use client'
 
-import { MobileHeader } from '@/shared/sections/MobileHeader'
+import dynamic from 'next/dynamic';
 import { Sidebar } from '@/shared/sections/Sidebar'
+
+const MobileHeader = dynamic(() => import("@/shared/sections/MobileHeader").then(mod => ({ default: mod.MobileHeader })), {
+    ssr: false,
+  });
 
 interface LayoutProps {
     children: React.ReactNode

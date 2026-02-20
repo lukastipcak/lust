@@ -1,17 +1,32 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Menu, X, Home, FileText, FolderOpen, User, Github, Linkedin, Mail } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { ColorPaletteSelector } from '@/components/theme/ColorPaletteSelector'
 import { ThemeToggle } from '@/components/theme/ThemeToggle'
+import { Skeleton } from '@/shared/elements/skeleton'
+
+const ColorPaletteSelector = dynamic(
+    () => import('@/components/theme/ColorPaletteSelector').then((mod) => ({ default: mod.ColorPaletteSelector })),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="flex items-center gap-2">
+                {Array.from({ length: 6 }).map((_, i) => (
+                    <Skeleton key={i} className="w-5 h-5 rounded-full" />
+                ))}
+            </div>
+        ),
+    }
+)
 
 const navItems = [
     { href: '/', label: 'Domů', icon: Home },
     { href: '/blog', label: 'Blog', icon: FileText },
-    { href: '/projekty', label: 'Projekty', icon: FolderOpen },
-    { href: '/o-mne', label: 'O mně', icon: User },
+    { href: '/projects', label: 'Projekty', icon: FolderOpen },
+    { href: '/about-me', label: 'O mně', icon: User },
 ]
 
 export const MobileHeader = () => {
