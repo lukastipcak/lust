@@ -1,16 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { StickyHeader } from '@/components/StickyHeader'
-import { AnimatedSection } from '@/components/AnimatedSection'
-import { InteractiveCard } from '@/components/InteractiveCard'
+import { StickyHeader } from '@/shared/components/StickyHeader'
+import { AnimatedSection } from '@/shared/components/AnimatedSection'
+import { InteractiveCard } from '@/shared/components/InteractiveCard'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function Home() {
     return (
         <>
-            {/* Hero / Intro */}
             <AnimatedSection delay={0}>
                 <section className="flex flex-col sm:flex-row gap-10 items-start mb-20">
                     <motion.div
@@ -43,7 +42,6 @@ export default function Home() {
                                 používat.
                             </p>
 
-                            {/* Zvýrazněný blok o "neviditelné" práci */}
                             <div className="relative pl-6 border-l-2 border-accent-color/30 py-1">
                                 <p className="text-muted-foreground italic">
                                     Frontend pro mě není jen o estetice. Je to hlavně o té{' '}
@@ -54,7 +52,6 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Hlavní CTA - "Více o mně" */}
                         <div className="mt-8">
                             <Link
                                 href="/o-mne"
@@ -70,7 +67,6 @@ export default function Home() {
                 </section>
             </AnimatedSection>
 
-            {/* Latest Posts */}
             <AnimatedSection delay={0.15}>
                 <section>
                     <StickyHeader level="h2">
@@ -113,7 +109,6 @@ export default function Home() {
                 </section>
             </AnimatedSection>
 
-            {/* Featured Projects */}
             <AnimatedSection delay={0.25}>
                 <section className="mt-12">
                     <StickyHeader level="h2">

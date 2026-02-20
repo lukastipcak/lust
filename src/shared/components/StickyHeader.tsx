@@ -7,7 +7,6 @@ interface StickyHeaderProps {
 }
 
 export const StickyHeader = forwardRef<HTMLHeadingElement, StickyHeaderProps>(({ children, level, className = '' }, ref) => {
-    // h2 sticks at top, h3 sticks below h2 (after scrolling past it)
     const config = {
         h2: {
             top: 'top-[52px] lg:top-0',
@@ -34,3 +33,4 @@ export const StickyHeader = forwardRef<HTMLHeadingElement, StickyHeaderProps>(({
 })
 
 StickyHeader.displayName = 'StickyHeader'
+

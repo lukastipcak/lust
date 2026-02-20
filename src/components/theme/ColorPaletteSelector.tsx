@@ -1,8 +1,7 @@
 'use client'
 
 import { useTheme } from '@/hooks/useTheme'
-import { useEffect, useState } from 'react'
-import { Skeleton } from './ui/skeleton'
+import { Skeleton } from '@/shared/elements/skeleton'
 
 const palettes = [
     { name: 'blue', color: 'hsl(210, 100%, 50%)', label: 'Modrá' },

@@ -1,13 +1,13 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
-import { StickyHeader } from '@/components/StickyHeader'
-import { TechChip } from '@/components/TechChip'
-import { AnimatedSection } from '@/components/AnimatedSection'
-import { InteractiveCard } from '@/components/InteractiveCard'
+import { Badge } from '@/shared/elements/badge'
+import { StickyHeader } from '@/shared/components/StickyHeader'
+import { TechChip } from '@/shared/components/TechChip'
+import { AnimatedSection } from '@/shared/components/AnimatedSection'
+import { InteractiveCard } from '@/shared/components/InteractiveCard'
 import { Github, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { AspectRatio } from '@/shared/elements/aspect-ratio'
 
 interface Project {
     name: string

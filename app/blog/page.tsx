@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { StickyHeader } from '@/components/StickyHeader'
-import { AnimatedSection } from '@/components/AnimatedSection'
-import { InteractiveCard } from '@/components/InteractiveCard'
+import { StickyHeader } from '@/shared/components/StickyHeader'
+import { AnimatedSection } from '@/shared/components/AnimatedSection'
+import { InteractiveCard } from '@/shared/components/InteractiveCard'
 import { motion } from 'framer-motion'
 
 export const dynamic = 'force-dynamic'
