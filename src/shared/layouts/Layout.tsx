@@ -1,7 +1,7 @@
 'use client'
 
-import { MobileHeader } from '@/shared/ui/sections/MobileHeader'
-import { Sidebar } from '@/shared/ui/sections/Sidebar'
+import { MobileHeader } from '@/shared/sections/MobileHeader'
+import { Sidebar } from '@/shared/sections/Sidebar'
 
 interface LayoutProps {
     children: React.ReactNode
@@ -39,4 +39,3 @@ export const Layout = ({ children }: LayoutProps) => {
         </div>
     )
 }
-

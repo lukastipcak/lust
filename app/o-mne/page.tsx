@@ -1,5 +1,5 @@
-import { StickyHeader } from '@/shared/ui/components/StickyHeader'
-import { TechChip } from '@/shared/ui/components/TechChip'
+import { StickyHeader } from '@/shared/components/StickyHeader'
+import { TechChip } from '@/shared/components/TechChip'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
 const technologies = {

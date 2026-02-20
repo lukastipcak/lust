@@ -1,8 +1,8 @@
 'use client'
 
-import { Toaster } from '@/components/ui/toaster'
-import { Toaster as Sonner } from '@/components/ui/sonner'
-import { TooltipProvider } from '@/components/ui/tooltip'
+import { Toaster } from '@/shared/elements/toaster'
+import { Toaster as Sonner } from '@/shared/elements/sonner'
+import { TooltipProvider } from '@/shared/elements/tooltip'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
 import { ThemeProvider } from 'next-themes'

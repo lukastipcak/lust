@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { Home, FileText, FolderOpen, User, Github, Linkedin, Mail } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { ColorPaletteSelector } from '@/features/theme/view/components/ColorPaletteSelector'
-import { ThemeToggle } from '@/components/ThemeToggle'
+import { ColorPaletteSelector } from '@/components/theme/ColorPaletteSelector'
+import { ThemeToggle } from '@/components/theme/ThemeToggle'
 
 const navItems = [
     { href: '/', label: 'Domů', icon: Home },
@@ -97,4 +97,3 @@ export const Sidebar = () => {
         </aside>
     )
 }
-

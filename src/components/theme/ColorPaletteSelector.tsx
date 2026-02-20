@@ -1,7 +1,7 @@
 'use client'
 
-import { useTheme } from '@/features/theme/model/useTheme'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useTheme } from '@/hooks/useTheme'
+import { Skeleton } from '@/shared/elements/skeleton'
 
 const palettes = [
     { name: 'blue', color: 'hsl(210, 100%, 50%)', label: 'Modrá' },
@@ -41,4 +41,3 @@ export const ColorPaletteSelector = () => {
         </div>
     )
 }
-

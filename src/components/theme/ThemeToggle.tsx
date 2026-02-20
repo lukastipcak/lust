@@ -1,8 +1,8 @@
 'use client'
 
 import { Moon, Sun } from 'lucide-react'
-import { useTheme } from '@/features/theme/model/useTheme'
-import { Skeleton } from './ui/skeleton'
+import { useTheme } from '@/hooks/useTheme'
+import { Skeleton } from '../../shared/elements/skeleton'
 
 export const ThemeToggle = () => {
     const { isDarkMode, toggleDarkMode, isLoaded } = useTheme()

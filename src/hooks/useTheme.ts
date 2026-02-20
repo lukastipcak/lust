@@ -1,8 +1,7 @@
-// hooks/useTheme.ts
 'use client'
 
 import { useTheme as useNextTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useTheme = () => {
     const { resolvedTheme, setTheme } = useNextTheme()

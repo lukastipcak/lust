@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Providers } from './providers'
-import { Layout } from '@/shared/ui/layouts/Layout'
+import { Layout } from '@/shared/layouts/Layout'
 import './globals.css'
 
 export const metadata: Metadata = {
