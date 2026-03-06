@@ -30,8 +30,14 @@ export default function Home() {
                     </motion.div>
 
                     <div className="flex-1">
-                        <h1 className="mb-6 text-4xl sm:text-5xl font-bold tracking-tight text-balance">
-                            Software developer se zaměřením na <span className="text-accent-color italic">Frontend</span>.
+                        <h1 className="mb-6 text-4xl sm:text-6xl tracking-tight text-slate-900 dark:text-white leading-none">
+                            <span className="text-accent-color font-medium opacity-80 italic tracking-[0.2em] text-[0.6em] align-middle mr-3">
+                                FRON
+                            </span>
+                            <span className="font-extrabold uppercase tracking-tighter">Software developer</span>
+                            <span className="text-accent-color font-medium opacity-80 italic tracking-[0.2em] text-[0.6em] align-middle ml-3">
+                                TEND
+                            </span>
                         </h1>
 
                         <div className="space-y-6 text-lg leading-relaxed text-balance">

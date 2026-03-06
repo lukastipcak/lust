@@ -9,11 +9,12 @@ export const PROJECTS_CONTENT = {
     },
     practice: {
         title: 'Practice',
-        description: 'Osobní projekty a open source experimenty. Volně dostupné na GitHubu.',
+        description: 'Osobní projekty a open source experimenty.',
         badge: 'open-source',
         items: [
             {
                 name: 'AdminCore HUB',
+                year: '2021',
                 description:
                     'Modulární full-stack admin platforma postavená na MERN stacku. Navržena jako škálovatelný základ pro firemní nástroje (správa úkolů, správa uživatelů, rezervační systémy, CRM moduly). Obsahuje JWT autentizaci, chráněné routy, centralizovanou správu stavu aplikace a architekturu postavenou na REST API.',
                 tech: [
@@ -42,6 +43,8 @@ export const PROJECTS_CONTENT = {
             },
             {
                 name: 'Webová stránka - zemní a výkopové práce',
+                year: '2025',
+                preview: 'https://zemni-prace-web.vercel.app/',
                 description:
                     'Webová stránka pro firmu zabývající se zemními a výkopovými pracemi. Postaveno na Next.js a Tailwind CSS s důrazem na SEO optimalizaci. Napojeno na Strapi, aby mohl klient sám nahrávat fotografie a aktualizovat obsah. Obsahuje poptávkový formulář propojený s Resend pro odesílání e-mailů.',
                 tech: ['Next.js', 'Tailwind CSS', 'Strapi', 'Resend', 'React'],

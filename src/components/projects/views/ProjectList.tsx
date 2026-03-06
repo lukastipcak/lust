@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, ExternalLink } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react' // Přidána ikona Globe
 import Image from 'next/image'
 import { Badge } from '@/shared/elements/badge'
 import { AspectRatio } from '@/shared/elements/aspect-ratio'
@@ -26,7 +26,7 @@ export const ProjectList = ({ projects, badgeText }: { projects: Project[]; badg
                 <AnimatedSection key={project.name} delay={0.15 + index * 0.08}>
                     <section className="mb-2">
                         <StickyHeader level="h3">
-                            <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center justify-between gap-4 w-full">
                                 <span className="flex items-center gap-2 font-semibold text-foreground">
                                     {project.github ? (
                                         <motion.a
@@ -38,18 +38,34 @@ export const ProjectList = ({ projects, badgeText }: { projects: Project[]; badg
                                             transition={{ duration: 0.15 }}
                                         >
                                             {project.name}
-                                            <ExternalLink className="w-4 h-4" />
+                                            <ExternalLink className="w-4 h-4 text-muted-foreground/50" />
                                         </motion.a>
                                     ) : (
                                         project.name
                                     )}
                                 </span>
-                                <Badge
-                                    variant={badgeText === 'komerční' ? 'secondary' : 'default'}
-                                    className="shrink-0 font-normal text-xs"
-                                >
-                                    {badgeText}
-                                </Badge>
+
+                                <div className="flex items-center gap-2 shrink-0">
+                                    {project.preview && (
+                                        <motion.a
+                                            href={project.preview}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ y: -1 }}
+                                            className="no-underline"
+                                        >
+                                            <Badge
+                                                variant="default"
+                                                className="font-normal text-[10px] px-2 py-0 flex items-center gap-1 cursor-pointer bg-accent-color hover:bg-accent-color/90"
+                                            >
+                                                Live Preview
+                                            </Badge>
+                                        </motion.a>
+                                    )}
+                                    <Badge variant="secondary" className="font-normal text-[10px] px-2 py-0">
+                                        {project.year}
+                                    </Badge>
+                                </div>
                             </div>
                         </StickyHeader>
 
@@ -81,7 +97,7 @@ export const ProjectList = ({ projects, badgeText }: { projects: Project[]; badg
                                                 <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
                                                 <circle cx="9" cy="9" r="2" />
                                                 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                                            </svg>{' '}
+                                            </svg>
                                         </div>
                                     )}
                                 </AspectRatio>
