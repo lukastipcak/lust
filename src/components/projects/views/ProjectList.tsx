@@ -24,7 +24,7 @@ export const ProjectList = ({ projects, badgeText }: { projects: Project[]; badg
         <div className="space-y-4">
             {projects.map((project, index) => (
                 <AnimatedSection key={project.name} delay={0.15 + index * 0.08}>
-                    <section className="mb-2">
+                    <section id={project.slug} className="mb-2 scroll-mt-24">
                         <StickyHeader level="h3">
                             <div className="flex items-center justify-between gap-4 w-full">
                                 <span className="flex items-center gap-2 font-semibold text-foreground">

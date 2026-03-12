@@ -1,5 +1,7 @@
 export type Project = {
+    slug: string
     name: string
+    shortDescription: string
     description: string
     tech: string[]
     year: string
@@ -7,4 +9,16 @@ export type Project = {
     preview?: string
     media?: string
     mediaAlt?: string
+}
+
+export type ProjectSection = {
+    title: string
+    description: string
+    badge: string
+    items: Project[]
+}
+
+export type ProjectsContent = {
+    commercial: ProjectSection
+    practice: ProjectSection
 }

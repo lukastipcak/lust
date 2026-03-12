@@ -8,8 +8,16 @@ import { InteractiveCard } from '@/shared/components/InteractiveCard'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Skeleton } from '@/shared/elements/skeleton'
+import { getLatestPosts } from '@/lib/posts'
+import { getLatestPracticeProjects } from '@/components/projects/utils/utils'
+
+const HOMEPAGE_POST_COUNT = 3
+const HOMEPAGE_PROJECT_COUNT = 3
 
 export default function Home() {
+    const recentPosts = getLatestPosts(HOMEPAGE_POST_COUNT)
+    const recentProjects = getLatestPracticeProjects(HOMEPAGE_PROJECT_COUNT)
+
     return (
         <>
             <AnimatedSection delay={0}>
@@ -95,13 +103,7 @@ export default function Home() {
                         </StickyHeader>
 
                         <ul className="list-none p-0 mt-4">
-                            {[
-                                {
-                                    slug: 'virtualizace-dom',
-                                    title: 'Virtualizace DOM v Reactu',
-                                    year: '2026',
-                                },
-                            ].map((post, i) => (
+                            {recentPosts.map((post, i) => (
                                 <motion.li
                                     key={post.slug}
                                     className="py-3 border-b border-border m-0"
@@ -151,16 +153,7 @@ export default function Home() {
                         </StickyHeader>
 
                         <ul className="list-none p-0 mt-4">
-                            {[
-                                {
-                                    name: 'AdminCore HUB',
-                                    desc: 'Modulární administrační platforma navržená pro škálovatelné business nástroje',
-                                },
-                                {
-                                    name: 'Webová stránka pro zemní a výkopové práce',
-                                    desc: 'SEO optimalizovaný web s CMS napojením na Strapi a poptávkovým formulářem',
-                                },
-                            ].map((project, i) => (
+                            {recentProjects.map((project, i) => (
                                 <motion.li
                                     key={project.name}
                                     className="py-3 border-b border-border m-0"
@@ -169,11 +162,11 @@ export default function Home() {
                                     transition={{ delay: 0.3 + i * 0.1 }}
                                 >
                                     <InteractiveCard>
-                                        <Link href="/projects" className="no-underline hover:underline">
+                                        <Link href={`/projects#${project.slug}`} className="no-underline hover:underline">
                                             <span className="text-foreground font-medium">{project.name}</span>
                                         </Link>
 
-                                        <p className="text-muted-foreground text-sm mt-1">{project.desc}</p>
+                                        <p className="text-muted-foreground text-sm mt-1">{project.shortDescription}</p>
                                     </InteractiveCard>
                                 </motion.li>
                             ))}

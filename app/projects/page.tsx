@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 import { StickyHeader } from '@/shared/components/StickyHeader'
 import { Skeleton } from '@/shared/elements/skeleton'
 import { AspectRatio } from '@/shared/elements/aspect-ratio'
-import { PROJECTS_CONTENT } from '@/components/projects/constants/constant'
+import { PROJECTS } from '@/components/projects/constants/constant'
 import { ProjectList } from '@/components/projects/views/ProjectList'
 
 const ListSkeleton = () => (
@@ -29,14 +29,16 @@ const ListSkeleton = () => (
 )
 
 export default function ProjectsPage() {
-    const { commercial, practice } = PROJECTS_CONTENT
+    const { commercial, practice } = PROJECTS
 
     return (
         <>
             <StickyHeader level="h2">
                 <span className="text-accent-color">#</span> {commercial.title}
             </StickyHeader>
-            <p className="text-lg my-6">{commercial.description}</p>
+            <div className="max-w-2xl">
+                <p className="text-lg my-6 text-muted-foreground leading-relaxed text-pretty">{commercial.description}</p>
+            </div>
 
             <Suspense fallback={<ListSkeleton />}>
                 <ProjectList projects={commercial.items} badgeText={commercial.badge} />
@@ -46,8 +48,9 @@ export default function ProjectsPage() {
                 <StickyHeader level="h2">
                     <span className="text-accent-color">#</span> {practice.title}
                 </StickyHeader>
-                <p className="text-lg my-6">{practice.description}</p>
-
+                <div className="max-w-2xl">
+                    <p className="text-lg my-6 text-muted-foreground leading-relaxed text-pretty">{practice.description}</p>
+                </div>
                 <Suspense fallback={<ListSkeleton />}>
                     <ProjectList projects={practice.items} badgeText={practice.badge} />
                 </Suspense>

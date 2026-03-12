@@ -1,90 +1,45 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+import { getAllSlugs, getPost, SITE_AUTHOR, SITE_URL } from '@/lib/posts'
 
-export const dynamic = 'force-dynamic'
-
-const blogContent: Record<string, { title: string; date: string; content: React.ReactNode }> = {
-    'virtualizace-dom': {
-        title: 'Virtualizace DOM v Reactu',
-        date: '17. února 2026',
-        content: (
-            <>
-                <p>
-                    Při práci s většími datasety v Reactu se limity výkonu projeví poměrně rychle. Renderování stovek nebo tisíců
-                    řádků není problém pro JavaScript samotný. Skutečnou zátěží je DOM.
-                </p>
-
-                <h2>Problém</h2>
-                <p>
-                    Každý DOM element zabírá paměť a prohlížeč musí počítat layout, aplikovat styly a provádět reflow operace pro
-                    všechny vykreslené prvky. Už kolem 100 až 200 řádků, zvlášť pokud obsahují složitější komponenty, může být
-                    znatelné zpomalení.
-                </p>
-
-                <p>
-                    Typicky se projeví delší initial render, trhané scrollování nebo opožděné reakce na uživatelskou interakci. S
-                    rostoucím počtem prvků roste i cena přepočtu layoutu a repaint operací, což může vést k viditelným prodlevám.
-                </p>
-
-                <h2>Řešení: virtualizace</h2>
-                <p>
-                    Virtualizace znamená, že se renderují pouze položky, které jsou aktuálně viditelné v viewportu, případně malý
-                    buffer nad a pod nimi.
-                </p>
-
-                <p>
-                    V React ekosystému se běžně používají knihovny jako <code>react-window</code> nebo{' '}
-                    <code>@tanstack/virtual</code>, které tuto optimalizaci řeší efektivně a s minimální režií.
-                </p>
-
-                <pre>
-                    {`import { FixedSizeList } from 'react-window';
-
-const List = ({ items }) => (
-  <FixedSizeList
-    height={400}
-    itemCount={items.length}
-    itemSize={35}
-    width="100%"
-  >
-    {({ index, style }) => (
-      <div style={style}>
-        {items[index]}
-      </div>
-    )}
-  </FixedSizeList>
-);`}
-                </pre>
-
-                <h2>Kdy virtualizovat</h2>
-                <ul>
-                    <li>Pokud renderujete více než 100 až 200 položek</li>
-                    <li>Pokud mají položky složitější strukturu</li>
-                    <li>Pokud dochází k lagům při scrollování</li>
-                    <li>Pokud je initial render výrazně pomalý</li>
-                </ul>
-
-                <p>
-                    Virtualizace není univerzální řešení pro každý případ. Přidává určitou komplexitu do implementace. U větších
-                    datasetů je ale často nejefektivnějším způsobem, jak udržet aplikaci plynulou a responzivní.
-                </p>
-            </>
-        ),
-    },
-}
-
-type PageProps = {
-    params: Promise<{ slug: string }>
-}
+type PageProps = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-    return Object.keys(blogContent).map((slug) => ({
-        slug,
-    }))
+    return getAllSlugs()
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params
+    const post = getPost(slug)
+    if (!post) return {}
+
+    const url = `${SITE_URL}/blog/${slug}`
+
+    return {
+        title: post.title,
+        description: post.description,
+        keywords: post.keywords,
+        authors: [{ name: SITE_AUTHOR, url: SITE_URL }],
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            type: 'article',
+            url,
+            publishedTime: post.dateISO,
+            locale: 'cs_CZ',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.description,
+        },
+        alternates: { canonical: url },
+    }
 }
 
 export default async function BlogPost({ params }: PageProps) {
     const { slug } = await params
-    const post = blogContent[slug]
+    const post = getPost(slug)
 
     if (!post) {
         return (
@@ -97,19 +52,41 @@ export default async function BlogPost({ params }: PageProps) {
         )
     }
 
-    return (
-        <article>
-            <header className="mb-10">
-                <p className="text-muted-foreground mb-2">
-                    <Link href="/blog" className="no-underline hover:underline">
-                        ← Zpět na blog
-                    </Link>
-                </p>
-                <h1 className="mb-2">{post.title}</h1>
-                <time className="text-muted-foreground">{post.date}</time>
-            </header>
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.description,
+        keywords: post.keywords.join(', '),
+        datePublished: post.dateISO,
+        dateModified: post.dateISO,
+        inLanguage: 'cs',
+        url: `${SITE_URL}/blog/${slug}`,
+        author: { '@type': 'Person', name: SITE_AUTHOR, url: SITE_URL },
+        publisher: { '@type': 'Person', name: SITE_AUTHOR, url: SITE_URL },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
+    }
 
-            <div className="prose">{post.content}</div>
-        </article>
+    return (
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <article>
+                <header className="mb-10">
+                    <p className="text-muted-foreground mb-2">
+                        <Link href="/blog" className="no-underline hover:underline">
+                            ← Zpět na blog
+                        </Link>
+                    </p>
+                    <h1 className="mb-2">{post.title}</h1>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <time dateTime={post.dateISO}>{post.date}</time>
+                        <span>·</span>
+                        <span>{post.readingTime} min čtení</span>
+                    </div>
+                </header>
+
+                <div className="prose">{post.content}</div>
+            </article>
+        </>
     )
 }
